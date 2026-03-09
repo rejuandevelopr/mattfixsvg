@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Advanced 3D Particle Sphere Visualizer | Matt Silverman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Geist Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            background: #000000; /* Pure black space background */
+            overflow: hidden;
+            color: white;
+        }
+        
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        /* Control Panel Styles */
+        .control-panel-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .control-panel-cta {
+            background: #1a1a1a;
+            color: #ffffff;
+            border: 2px solid #666666;
+            padding: 14px 28px;
+            border-radius: 0;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 24px;
+        }
+        
+        .control-panel-cta:hover {
+            transform: translateY(-2px);
+            background: #333333;
+            color: #ffffff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        
+        .control-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 360px;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid #666666;
+            border-radius: 0;
+            padding: 24px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+            max-height: 90vh;
+            overflow-y: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        
+        .control-panel.open {
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .control-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #666666;
+        }
+        
+        .control-panel-title {
+            font-size: 18px;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 24px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            color: #cccccc;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 0;
+            transition: all 0.2s ease;
+            line-height: 1;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .close-button:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .control-group {
+            margin-bottom: 24px;
+        }
+        
+        .control-group-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .control-group-title::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: #666666;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        
+        .control-item {
+            margin-bottom: 20px;
+        }
+        
+        .control-label {
+            display: block;
+            font-size: 12px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        
+        .control-value {
+            font-size: 12px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 6px;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #666666;
+            padding: 4px 8px;
+            border-radius: 0;
+            display: inline-block;
+            min-width: 60px;
+            line-height: 24px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        
+        .slider-container {
+            position: relative;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #666666;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #666666;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fps-display {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .fps-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        /* Scrollbar styling */
+        .control-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .control-panel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .control-panel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+        .control-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="loading" id="loading">Loading...</div>
+    </div>
+    
+    <!-- Control Panel -->
+    <div class="control-panel-container">
+        <button class="control-panel-cta" id="controlPanelCta">
+            Control Panel
+        </button>
+        <div class="control-panel" id="controlPanel">
+            <div class="control-panel-header">
+                <h3 class="control-panel-title">Control Panel</h3>
+                <button class="close-button" id="closeControlPanel">×</button>
+            </div>
+            <!-- Particle System Controls -->
+            <div class="control-group">
+                <div class="control-group-title">Particle System</div>
+                <div class="control-item">
+                    <label class="control-label">Particle Size</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" id="particleSizeSlider" min="0.009" max="0.08" step="0.002" value="0.04">
+                    </div>
+                    <div class="control-value" id="particleSizeValue">0.040</div>
+                </div>
+                <div class="control-item">
+                    <label class="control-label">Particle Count</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" id="particleCountSlider" min="100" max="2500" step="100" value="400">
+                    </div>
+                    <div class="control-value" id="particleCountValue">400</div>
+                </div>
+            </div>
+            
+            <!-- Morphing Controls -->
+            <div class="control-group">
+                <div class="control-group-title">Morphing</div>
+                <div class="control-item">
+                    <label class="control-label">Scatter</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" id="scatterSlider" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="control-value" id="scatterValue">0.00</div>
+                </div>
+                <div class="control-item">
+                    <label class="control-label">Cluster</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" id="clusterSlider" min="0" max="1" step="0.01" value="1">
+                    </div>
+                    <div class="control-value" id="clusterValue">1.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- OrbitControls for camera manipulation -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- Main application script -->
+    <script src="assets/js/AdvancedParticleSphere.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

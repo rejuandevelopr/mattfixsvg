@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quantum Fabric</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Roboto Mono', monospace;
+        }
+        canvas {
+            display: block;
+        }
+        
+        /* Controls Button */
+        .controls-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .controls-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 1);
+        }
+        
+        /* Control Panel */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            transform: translateX(calc(100% + 40px));
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .control-panel.open {
+            transform: translateX(0);
+        }
+        
+        .control-panel h3 {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            border-radius: 0;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            height: 12px;
+            width: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            border-radius: 0;
+        }
+        
+        .control-group input[type="range"]::-moz-range-thumb {
+            height: 12px;
+            width: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            border-radius: 0;
+            border: none;
+        }
+        
+        .control-value {
+            float: right;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 10px;
+        }
+        
+        .control-group input[type="color"] {
+            width: 100%;
+            height: 30px;
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        
+        .control-group button {
+            width: 100%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-group button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <button class="controls-btn" id="controlsBtn">CONTROLS</button>
+    
+    <div class="control-panel" id="controlPanel">
+        <h3>Quantum Controls</h3>
+        
+        <div class="control-group">
+            <label>Grid Size <span class="control-value" id="gridSizeValue">25</span></label>
+            <input type="range" id="gridSize" min="15" max="50" value="25">
+        </div>
+        
+        <div class="control-group">
+            <label>Particle Size <span class="control-value" id="particleSizeValue">1</span></label>
+            <input type="range" id="particleSize" min="1" max="8" value="1" step="0.5">
+        </div>
+        
+        <div class="control-group">
+            <label>Mouse Influence <span class="control-value" id="mouseInfluenceValue">150</span></label>
+            <input type="range" id="mouseInfluence" min="50" max="300" value="150">
+        </div>
+        
+        <div class="control-group">
+            <label>Connection Opacity <span class="control-value" id="connectionOpacityValue">0.05</span></label>
+            <input type="range" id="connectionOpacity" min="0.05" max="0.5" value="0.05" step="0.05">
+        </div>
+        
+        <div class="control-group">
+            <label>Animation Speed <span class="control-value" id="animationSpeedValue">0.3</span></label>
+            <input type="range" id="animationSpeed" min="0.1" max="2" value="0.3" step="0.1">
+        </div>
+        
+        <div class="control-group">
+            <label>Particle Color</label>
+            <input type="color" id="particleColor" value="#ffffff">
+        </div>
+        
+        <div class="control-group">
+            <label>Connection Color</label>
+            <input type="color" id="connectionColor" value="#87ceeb">
+        </div>
+        
+        <div class="control-group">
+            <button id="resetBtn">Reset to Default</button>
+        </div>
+    </div>
+    
+    <script defer src="assets/js/sketch.js"></script>
+</body>
+</html> 

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Standard Favicon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon" sizes="16x16">
+    <!-- High-Resolution Favicon -->
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <!-- Android Homescreen Icon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Primary Meta Tags -->
+    <title>Matt Silverman | Portfolio 2026</title>
+    <meta name="title" content="Matt Silverman | Portfolio 2026">
+    <meta name="description"
+        content="Hello — I’m Matt, a product designer helping startups transform complex problems into experiences that feel effortless and human.">
+    <meta name="keywords"
+        content="Product Design, Product Designer, Senior Product Designer, Lead Product Designer, Staff Product Designer">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mattsilverman.xyz/">
+    <meta property="og:title" content="Matt Silverman | Portfolio 2026">
+    <meta property="og:description"
+        content="Hello — I’m Matt, a product designer helping startups transform complex problems into experiences that feel effortless and human.">
+    <meta property="og:image" content="https://mattsilverman.xyz/preview.avif">
+    <meta property="og:image:width" content="932">
+    <meta property="og:image:height" content="1024">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mattsilverman.xyz/">
+    <meta name="twitter:title" content="Matt Silverman | Portfolio 2026">
+    <meta name="twitter:description"
+        content="Hello — I’m Matt, a product designer helping startups transform complex problems into experiences that feel effortless and human.">
+    <meta name="twitter:image" content="https://mattsilverman.xyz/preview.avif">
+
+    <!-- Author -->
+    <meta name="author" content="Matt Silverman">
+    <!-- Theme Color (for mobile browser UI) -->
+    <meta name="theme-color" content="#F7F7F7">
+
+    <!-- Preconnect only to critical origins (max 2-3) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- DNS-prefetch for non-critical CDNs (lighter than preconnect) -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Bootstrap: load non-render-blocking -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Google Fonts: swap prevents render block -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Lenis: non-critical, load async -->
+    <link rel="preload" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css">
+    </noscript>
+
+    <!-- Your CSS: keep this render-blocking (it's 1st party, served at 0ms) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        const isDark = sessionStorage.getItem('darkMode') === 'true';
+        if (isDark) {
+            document.documentElement.classList.add('dark-mode', 'dark-mode-static');
+            document.documentElement.classList.add('preload-dark-toggle');
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="nav-left-content">
+                    <a href="index.html" class="nav-left-content__logo" aria-label="logo">
+                        <span class="logo-title">Matt Silverman</span>
+                        <span class="logo-subtitle">Product Designer</span>
+                    </a>
+                    <div class="nav-left-content__location">
+                        <span class="logo-title">San Diego, CA</span>
+                        <span class="logo-subtitle" id="pst-time">PST</span>
+                    </div>
+                </div>
+                <div class="nav-right-content">
+                    <div class="nav-right-content__links">
+                        <a href="work.html" aria-label="WORK" class="nav-right-content__btn active">WORK</a>
+                        <a href="playground.html" aria-label="PLAYGROUND" class="nav-right-content__btn">PLAYGROUND</a>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" class="no-animate">
+                        <div class="toggle-switch-background">
+                            <div class="toggle-switch-handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <section class="reveal">
+            <div class="container">
+                <div class="works-btn-flex">
+                    <a href="assets/cv/Resume-2026.pdf" target="_blank" aria-label="RESUME" class="works-btn"
+                        rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M16.01 11H4V13H16.01V16L20 12L16.01 8V11Z" fill="#2A2A2A" />
+                        </svg>
+                        <span>RESUME</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Start -->
+        <section>
+            <div class="container">
+                <div class="row gx-4 gy-3 mt-0 gy-md-4 work-grid">
+                    <div class="col-md-6">
+                        <div class="work-card work-vid reveal">
+                            <div class="work-card-container">
+                                <video width="100" height="100" preload="metadata"
+                                    poster="assets/images/work/work-vid-2.png" aria-label="Project preview video" muted
+                                    loop autoplay playsinline>
+                                    <source src="assets/vid/work-vid-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>Profile Page</span>
+                                    <div class="table-tools">
+                                        <span>2025</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                            <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 9" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 7" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card work-vid reveal">
+                            <div class="work-card-container">
+                                <video width="100" height="100" preload="metadata"
+                                    poster="assets/images/work/work-vid-3.png" aria-label="Project preview video" muted
+                                    loop autoplay playsinline>
+                                    <source src="assets/vid/work-vid-3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>Private sales</span>
+                                    <div class="table-tools">
+                                        <span>2024</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                            <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 9" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 7" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card work-vid reveal">
+                            <div class="work-card-container">
+                                <video width="100" height="100" preload="metadata"
+                                    poster="assets/images/work/work-vid-4.png" aria-label="Project preview video" muted
+                                    loop autoplay playsinline>
+                                    <source src="assets/vid/work-vid-4.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>Exhibition page</span>
+                                    <div class="table-tools">
+                                        <span>2024</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                           <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 9" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 7" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card work-vid reveal">
+                            <div class="work-card-container">
+                                <video width="100" height="100" preload="metadata"
+                                    poster="assets/images/work/work-vid-1.png" aria-label="Project preview video" muted
+                                    loop autoplay playsinline>
+                                    <source src="assets/vid/work-vid-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>PRODUCT DETAIL PAGE</span>
+                                    <div class="table-tools">
+                                        <span>2023</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                            <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 9" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 7" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-5.png"
+                                    srcset="assets/images/work/work-5.png 1x, assets/images/work/work-5@2x.png 2x, assets/images/work/work-5@3x.png 3x"
+                                    class="img-fluid" alt="Makersplace" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>EXHIBITIONS</span>
+                                    <div class="table-tools">
+                                        <span>2022</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                            <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 9" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="9" viewBox="0 0 8 7" fill="none">
+                                                <g clip-path="url(#clip0_7044_46179)">
+                                                    <path
+                                                        d="M6.92987 1.0795V6.94268H1.07751V1.0795H6.92987ZM8.00738 0H0V8.02218H8.00738V0Z"
+                                                        fill="#FEFEFE" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_7044_46179">
+                                                        <rect width="8.00738" height="8.02218" fill="white" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-6.png"
+                                    srcset="assets/images/work/work-6.png 1x, assets/images/work/work-6@2x.png 2x, assets/images/work/work-6@3x.png 3x"
+                                    class="img-fluid" alt="Olympus finance" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>Stake</span>
+                                    <div class="table-tools">
+                                        <span>2022</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <div class="tab-links__box-container">
+                                            <span class="tab-links__box olympus-box">
+                                                <svg class="olympus_Finance" xmlns="http://www.w3.org/2000/svg"
+                                                    width="8" height="8" viewBox="0 0 7 8" fill="none">
+                                                    <path
+                                                        d="M3.51953 0C5.45466 0 7.02332 1.51495 7.02344 3.38379C7.02344 4.46562 6.49775 5.42844 5.67969 6.04785H7.04004V7.04004H4.28809V5.70508C5.29031 5.38901 6.01562 4.47331 6.01562 3.3916C6.0154 2.04863 4.8979 0.959961 3.51953 0.959961C2.14138 0.960208 1.02366 2.04878 1.02344 3.3916C1.02344 4.47349 1.74935 5.38915 2.75195 5.70508V7.04004H0V6.04785H1.36035C0.542072 5.42844 0.015625 4.46573 0.015625 3.38379C0.0157428 1.51511 1.58461 0.000244595 3.51953 0Z"
+                                                        fill="#FAFAFB" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-7.png"
+                                    srcset="assets/images/work/work-7.png 1x, assets/images/work/work-7@2x.png 2x, assets/images/work/work-7@3x.png 3x"
+                                    class="img-fluid" alt="Olympus finance" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>give</span>
+                                    <div class="table-tools">
+                                        <span>2021</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <div class="tab-links__box-container">
+                                            <span class="tab-links__box olympus-box">
+                                                <svg class="olympus_Finance" xmlns="http://www.w3.org/2000/svg"
+                                                    width="8" height="8" viewBox="0 0 7 8" fill="none">
+                                                    <path
+                                                        d="M3.51953 0C5.45466 0 7.02332 1.51495 7.02344 3.38379C7.02344 4.46562 6.49775 5.42844 5.67969 6.04785H7.04004V7.04004H4.28809V5.70508C5.29031 5.38901 6.01562 4.47331 6.01562 3.3916C6.0154 2.04863 4.8979 0.959961 3.51953 0.959961C2.14138 0.960208 1.02366 2.04878 1.02344 3.3916C1.02344 4.47349 1.74935 5.38915 2.75195 5.70508V7.04004H0V6.04785H1.36035C0.542072 5.42844 0.015625 4.46573 0.015625 3.38379C0.0157428 1.51511 1.58461 0.000244595 3.51953 0Z"
+                                                        fill="#FAFAFB" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-8.png"
+                                    srcset="assets/images/work/work-8.png 1x, assets/images/work/work-8@2x.png 2x, assets/images/work/work-8@3x.png 3x"
+                                    class="img-fluid" alt="odyssey dao" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>WEB3 Learning Paths</span>
+                                    <div class="table-tools">
+                                        <span>2021</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <span class="tab-links__box">
+                                            <svg class="MakersPlace-icon MakersPlace__desktop-icon" xmlns="http://www.w3.org/2000/svg" width="11"
+                                                height="8" viewBox="0 0 10 8" fill="none">
+                                                <path
+                                                    d="M6.04395 0C7.63936 0 8.93348 1.29328 8.93359 2.88867V3.02734H10.3203V4.40332H8.93359V4.54004C8.9334 6.1352 7.64007 7.42845 6.04492 7.42871H4.25586C2.66059 7.42859 1.36738 6.13529 1.36719 4.54004V4.40234H0V3.02734H1.36719V2.88867C1.3673 1.29335 2.66054 0.000117071 4.25586 0H6.04395ZM4.26367 1.37891C3.42794 1.37891 2.75 2.05685 2.75 2.89258V4.54297C2.75002 5.37868 3.42795 6.05664 4.26367 6.05664H6.05176C6.8874 6.05655 7.56443 5.37862 7.56445 4.54297V2.89258C7.56445 2.0569 6.88741 1.379 6.05176 1.37891H4.26367Z"
+                                                    fill="white" />
+                                            </svg>
+                                            <svg class="MakersPlace-icon MakersPlace__mobile-icon" xmlns="http://www.w3.org/2000/svg" width="11"
+                                                height="8" viewBox="0 0 11 8" fill="none">
+                                                <path
+                                                    d="M6.04395 0C7.63936 0 8.93348 1.29328 8.93359 2.88867V3.02734H10.3203V4.40332H8.93359V4.54004C8.9334 6.1352 7.64007 7.42845 6.04492 7.42871H4.25586C2.66059 7.42859 1.36738 6.13529 1.36719 4.54004V4.40234H0V3.02734H1.36719V2.88867C1.3673 1.29335 2.66054 0.000117071 4.25586 0H6.04395ZM4.26367 1.37891C3.42794 1.37891 2.75 2.05685 2.75 2.89258V4.54297C2.75002 5.37868 3.42795 6.05664 4.26367 6.05664H6.05176C6.8874 6.05655 7.56443 5.37862 7.56445 4.54297V2.89258C7.56445 2.0569 6.88741 1.379 6.05176 1.37891H4.26367Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-9.png"
+                                    srcset="assets/images/work/work-9.png 1x, assets/images/work/work-9@2x.png 2x, assets/images/work/work-9@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2020</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container work-minus-margin">
+                                <img src="assets/images/work/work-15.png"
+                                    srcset="assets/images/work/work-15.png 1x, assets/images/work/work-15@2x.png 2x, assets/images/work/work-15@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2020</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-11.png"
+                                    srcset="assets/images/work/work-11.png 1x, assets/images/work/work-11@2x.png 2x, assets/images/work/work-11@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2019</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-12.png"
+                                    srcset="assets/images/work/work-12.png 1x, assets/images/work/work-12@2x.png 2x, assets/images/work/work-12@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2019</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-13.png"
+                                    srcset="assets/images/work/work-13.png 1x, assets/images/work/work-13@2x.png 2x, assets/images/work/work-13@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2019</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card reveal">
+                            <div class="work-card-container">
+                                <img src="assets/images/work/work-14.png"
+                                    srcset="assets/images/work/work-14.png 1x, assets/images/work/work-14@2x.png 2x, assets/images/work/work-14@3x.png 3x"
+                                    class="img-fluid" alt="the action network" />
+                            </div>
+                            <div class="work-card-content">
+                                <div class="work-card-content__data">
+                                    <span>ACTION APP</span>
+                                    <div class="table-tools">
+                                        <span>2019</span>
+                                    </div>
+                                </div>
+                                <span>
+                                    <div class="tab-links__box-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM11.3555 5.3291C11.1263 5.10368 10.7585 5.10372 10.5293 5.3291L6.72656 9.0752L5.46973 7.83691C5.24046 7.61107 4.87185 7.61108 4.64258 7.83691L4.08594 8.38574C3.85178 8.61645 3.85175 8.99392 4.08594 9.22461L6.31348 11.4189C6.54272 11.6444 6.91047 11.6445 7.13965 11.4189L11.9121 6.7168C12.1463 6.48609 12.1463 6.10862 11.9121 5.87793L11.3555 5.3291Z"
+                                                fill="#00C358" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Work End -->
+    </main>
+
+    <!-- Footer Start -->
+    <footer>
+        <div class="container-fluid">
+            <span>© 2026 Matt Silverman</span>
+            <div class="footer-links">
+                <a href="https://x.com/mattjss" aria-label="twitter" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z"
+                            fill="#020202" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/matt-silverman-67126a3a/?skipRedirect=true" aria-label="LinkedIn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <rect x="0.592593" y="0.592593" width="14.8148" height="14.8148" rx="2.37037" stroke="#020202"
+                            stroke-width="1.18519" />
+                        <path
+                            d="M12.0072 12.3119V9.09609C12.0072 7.373 11.1281 6.57145 9.9559 6.57145C9.01025 6.57145 8.58645 7.11561 8.35018 7.49779V6.70344H6.56841C6.59192 7.22961 6.56841 12.3119 6.56841 12.3119H8.35018V9.17949C8.35018 9.0121 8.36165 8.84471 8.40925 8.72532C8.53771 8.39054 8.83075 8.04376 9.32279 8.04376C9.96795 8.04376 10.2254 8.55793 10.2254 9.31148V12.3119H12.0072ZM4.69143 5.93788C5.3125 5.93788 5.6996 5.50711 5.6996 4.96834C5.68813 4.41817 5.3125 4 4.7029 4C4.0933 4 3.69531 4.41817 3.69531 4.96834C3.69531 5.50651 4.08241 5.93788 4.67996 5.93788H4.69143ZM5.58203 12.3119V6.70344H3.80083V12.3119H5.58203Z"
+                            fill="#020202" />
+                    </svg>
+                </a>
+                <a href="https://contra.com/matt_silverman_zyusamky/about" aria-label="contra" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                            d="M8.58667 7.56587H15.8507C15.8903 7.56587 15.9283 7.55013 15.9563 7.52213C15.9843 7.49412 16 7.45614 16 7.41653V7.1936C15.9999 7.16059 15.9888 7.12856 15.9685 7.10251C15.9483 7.07646 15.92 7.05785 15.888 7.0496C14.2134 6.61753 12.6843 5.74685 11.4581 4.52724C10.2319 3.30763 9.35304 1.78319 8.912 0.110933C8.90355 0.0791741 8.88486 0.0510892 8.85882 0.0310328C8.83279 0.0109764 8.80087 6.86297e-05 8.768 0H8.58773C8.54813 0 8.51014 0.0157334 8.48214 0.0437388C8.45413 0.0717442 8.4384 0.109728 8.4384 0.149333V7.4176C8.4384 7.45721 8.45413 7.49519 8.48214 7.52319C8.51014 7.5512 8.54813 7.56693 8.58773 7.56693L8.58667 7.56587ZM8.58667 16H8.8096C8.84261 15.9999 8.87464 15.9888 8.90069 15.9685C8.92674 15.9483 8.94535 15.92 8.9536 15.888C9.38473 14.213 10.2546 12.6832 11.4737 11.4563C12.6928 10.2294 14.2169 9.34964 15.8891 8.90773C15.9208 8.89928 15.9489 8.88059 15.969 8.85456C15.989 8.82852 15.9999 8.7966 16 8.76373V8.5824C16 8.54279 15.9843 8.50481 15.9563 8.4768C15.9283 8.4488 15.8903 8.43307 15.8507 8.43307H8.58667C8.54706 8.43307 8.50908 8.4488 8.48107 8.4768C8.45307 8.50481 8.43733 8.54279 8.43733 8.5824V15.8507C8.43733 15.8903 8.45307 15.9283 8.48107 15.9563C8.50908 15.9843 8.54706 16 8.58667 16ZM7.232 16H7.41227C7.45187 16 7.48986 15.9843 7.51786 15.9563C7.54587 15.9283 7.5616 15.8903 7.5616 15.8507V8.58347C7.5616 8.54386 7.54587 8.50588 7.51786 8.47787C7.48986 8.44987 7.45187 8.43413 7.41227 8.43413H0.149334C0.109728 8.43413 0.071745 8.44987 0.0437396 8.47787C0.0157341 8.50588 7.56289e-07 8.54386 7.56289e-07 8.58347V8.8064C-0.000104829 8.83959 0.0108479 8.87187 0.0311297 8.89814C0.0514115 8.9244 0.0798665 8.94317 0.112001 8.95147C1.7866 9.38353 3.31574 10.2542 4.54191 11.4738C5.76808 12.6934 6.64696 14.2179 7.088 15.8901C7.09645 15.9219 7.11514 15.95 7.14118 15.97C7.16721 15.9901 7.19914 15.9999 7.232 16ZM0.149334 7.56587H7.41333C7.45294 7.56587 7.49092 7.55013 7.51893 7.52213C7.54693 7.49412 7.56267 7.45614 7.56267 7.41653V0.149333C7.56267 0.109728 7.54693 0.0717442 7.51893 0.0437388C7.49092 0.0157334 7.45294 0 7.41333 0H7.1904C7.15739 0.000130772 7.12536 0.0111921 7.09931 0.0314555C7.07326 0.0517189 7.05465 0.0800426 7.0464 0.112C6.61527 1.78699 5.74537 3.31676 4.52631 4.54369C3.30725 5.77063 1.78312 6.65036 0.110934 7.09227C0.0791749 7.10072 0.05109 7.11941 0.0310336 7.14544C0.0109772 7.17148 6.93859e-05 7.2034 7.56289e-07 7.23627V7.41653C7.56289e-07 7.45614 0.0157341 7.49412 0.0437396 7.52213C0.071745 7.55013 0.109728 7.56587 0.149334 7.56587Z"
+                            fill="#020202" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Lenis (keep) -->
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Initialize Lenis
+        const lenis = new Lenis({
+            autoRaf: true,
+        });
+    </script>
+</body>
+
+</html>
